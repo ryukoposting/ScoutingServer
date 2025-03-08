@@ -34,7 +34,7 @@ public class TbaClient {
 
     public TbaClient(String tbaApiKey) {
         this.tbaApiKey = tbaApiKey;
-        this.cachedMatchResponses = new HashMap();
+        this.cachedMatchResponses = new HashMap<>();
     }
 
     public boolean isOk() {
