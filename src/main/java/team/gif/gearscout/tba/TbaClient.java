@@ -2,12 +2,14 @@ package team.gif.gearscout.tba;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import javax.net.ssl.*;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.net.http.*;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -54,7 +56,7 @@ public class TbaClient {
         GetAllMatchesForEventResponse resp = cachedMatchResponses.get(eventKey);
         long now = System.currentTimeMillis();
         if (resp != null && now < resp.expiration) {
-            long timeToExpiry = (resp.expiration - now + 500) / 1000;
+            long timeToExpiry = (resp.expiration - now) / 1000;
             logger.info("Using cached match schedule (" + timeToExpiry + " secs to expiry)");
             return resp.data;
         }
@@ -138,7 +140,7 @@ public class TbaClient {
             sslContext = SSLContext.getInstance("TLS");
             sslContext.init(null, trustAllCertificates, new java.security.SecureRandom());
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to init SSL context", e);
         }
 
         return HttpClient.newBuilder()
