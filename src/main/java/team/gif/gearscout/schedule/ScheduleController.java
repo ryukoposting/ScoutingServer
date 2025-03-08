@@ -17,7 +17,7 @@ import team.gif.gearscout.token.TokenService;
 import team.gif.gearscout.tba.TbaService;
 import team.gif.gearscout.tba.MatchScheduleEntry;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v2/schedule", produces = MediaType.APPLICATION_JSON_VALUE)
