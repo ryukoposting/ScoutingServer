@@ -3,8 +3,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
-import java.util.stream.*;
-import java.util.*;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 import team.gif.gearscout.tba.MatchScheduleEntry;
 
 @Service
