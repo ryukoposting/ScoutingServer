@@ -2,9 +2,9 @@ package team.gif.gearscout.tba;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.*;
-
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONPropertyName;
 
 import java.util.Optional;
 import java.util.ArrayList;
